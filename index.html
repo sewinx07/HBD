@@ -2,51 +2,129 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>AIESEC Conference Registration</title>
+  <title>AIESEC Conference Delegate Registration</title>
   <style>
-    body {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f4f6f8;
-      margin: 0;
-      padding: 20px;
-    }
-
-    .form-container {
-      max-width: 800px;
-      margin: auto;
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
-    }
-
-    h1 {
-      text-align: center;
-      color: #0077b6;
-      margin-bottom: 30px;
-    }
-
-    iframe {
-      width: 100%;
-      height: 1000px; /* Adjust based on your form length */
-      border: none;
-    }
-
-    @media (max-width: 768px) {
-      .form-container {
-        padding: 15px;
-      }
-
-      iframe {
-        height: 1200px;
-      }
-    }
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    fieldset { margin-bottom: 15px; padding: 10px; }
+    legend { font-weight: bold; }
+    label { display: block; margin: 5px 0; }
+    input, select, textarea { width: 100%; padding: 6px; margin-bottom: 10px; box-sizing: border-box; }
   </style>
 </head>
 <body>
-  <div class="form-container">
-    <h1>AIESEC Delegate Registration</h1>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScnWYbh1jdd5rh53C0ah54j5xcNDtn1xzxRullWoGuzNNLClQ/viewform?embedded=true">Loading…</iframe>
-  </div>
+  <h1>🌍 AIESEC Conference Delegate Registration Form</h1>
+  <p>Welcome, Future Leader! Please complete this form to register for the upcoming AIESEC conference.</p>
+  <form action="/submit" method="post">
+    
+    <fieldset>
+      <legend>1. Personal Information</legend>
+      <label>Full Name*<br>
+        <input type="text" name="full_name" required>
+      </label>
+      <label>Preferred Name (for badge)<br>
+        <input type="text" name="preferred_name">
+      </label>
+      <label>Email Address*<br>
+        <input type="email" name="email" required>
+      </label>
+      <label>Phone Number*<br>
+        <input type="tel" name="phone" placeholder="+1234567890" required>
+      </label>
+      <label>Date of Birth*<br>
+        <input type="date" name="dob" required>
+      </label>
+      <label>Gender*<br>
+        <select name="gender" required>
+          <option value="">Select...</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Non-binary</option>
+          <option>Prefer not to say</option>
+          <option>Other</option>
+        </select>
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>2. AIESEC Information</legend>
+      <label>Your Entity (LC/MC/IG/CDP etc.)*<br>
+        <input type="text" name="entity" required>
+      </label>
+      <label>Current Role/Position in AIESEC*<br>
+        <input type="text" name="role" required>
+      </label>
+      <label>How long have you been in AIESEC?*<br>
+        <select name="duration" required>
+          <option value="">Select...</option>
+          <option>Less than 3 months</option>
+          <option>3–6 months</option>
+          <option>6–12 months</option>
+          <option>Over a year</option>
+        </select>
+      </label>
+      <label>Are you attending this conference as:*<br>
+        <select name="attending_as" required>
+          <option value="">Select...</option>
+          <option>Delegate</option>
+          <option>Facilitator</option>
+          <option>Organizer</option>
+          <option>Guest Speaker</option>
+          <option>Other</option>
+        </select>
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>3. Logistics</legend>
+      <label>Do you require accommodation?<br>
+        <select name="accommodation">
+          <option value="">Select...</option>
+          <option>Yes</option>
+          <option>No</option>
+          <option>I will arrange it myself</option>
+        </select>
+      </label>
+      <label>Dietary Restrictions or Allergies<br>
+        <textarea name="dietary" rows="3"></textarea>
+      </label>
+      <label>Emergency Contact (Name, Phone, Relation)*<br>
+        <textarea name="emergency_contact" rows="2" required></textarea>
+      </label>
+      <label>Permission to be photographed or filmed?<br>
+        <select name="media_consent" required>
+          <option value="">Select...</option>
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>4. Conference Experience</legend>
+      <label>What do you expect to gain from this conference?<br>
+        <textarea name="expectations" rows="4"></textarea>
+      </label>
+      <label>Interested in joining a functional space or team activity?<br>
+        <select name="join_activity">
+          <option value="">Select...</option>
+          <option>Yes</option>
+          <option>No</option>
+          <option>Maybe</option>
+        </select>
+      </label>
+      <label>If yes, which one?<br>
+        <input type="text" name="activity_choice">
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>5. Confirmation</legend>
+      <label>
+        <input type="checkbox" name="agree" required> I confirm the information provided is accurate and I agree to adhere to the AIESEC Code of Conduct.*
+      </label>
+    </fieldset>
+
+    <button type="submit">Submit</button>
+  </form>
 </body>
 </html>
