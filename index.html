@@ -27,6 +27,9 @@
       <label>Email Address*<br>
         <input type="email" name="email" required>
       </label>
+      <label>CIN*<br>
+        <input type="text" name="CIN" required>
+      </label>
       <label>Phone Number*<br>
         <input type="tel" name="phone" placeholder="+1234567890" required>
       </label>
@@ -38,16 +41,13 @@
           <option value="">Select...</option>
           <option>Male</option>
           <option>Female</option>
-          <option>Non-binary</option>
-          <option>Prefer not to say</option>
-          <option>Other</option>
         </select>
       </label>
     </fieldset>
 
     <fieldset>
       <legend>2. AIESEC Information</legend>
-      <label>Your Entity (LC/MC/IG/CDP etc.)*<br>
+      <label>Your Entity (LC/MC)*<br>
         <input type="text" name="entity" required>
       </label>
       <label>Current Role/Position in AIESEC*<br>
@@ -66,9 +66,6 @@
         <select name="attending_as" required>
           <option value="">Select...</option>
           <option>Delegate</option>
-          <option>Facilitator</option>
-          <option>Organizer</option>
-          <option>Guest Speaker</option>
           <option>Other</option>
         </select>
       </label>
@@ -76,7 +73,7 @@
 
     <fieldset>
       <legend>3. Logistics</legend>
-      <label>Do you require accommodation?<br>
+      <label>Do you require individual accommodation?<br>
         <select name="accommodation">
           <option value="">Select...</option>
           <option>Yes</option>
