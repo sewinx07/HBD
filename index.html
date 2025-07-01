@@ -1,127 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <title>AIESEC Conference Delegate Registration</title>
+  <title>طلعني شكون؟</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    fieldset { margin-bottom: 15px; padding: 10px; }
-    legend { font-weight: bold; }
-    label { display: block; margin: 5px 0; }
-    input, select, textarea { width: 100%; padding: 6px; margin-bottom: 10px; box-sizing: border-box; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      color: #FFD700;
+      margin-bottom: 10px;
+    }
+    .card, .clues, .result {
+      background: #222;
+      padding: 20px;
+      border-radius: 12px;
+      margin: 20px auto;
+      max-width: 500px;
+      box-shadow: 0 0 10px #FFD700;
+    }
+    input, button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    button {
+      background-color: #FFD700;
+      cursor: pointer;
+    }
+    .result {
+      font-size: 18px;
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
-  <h1>🌍 AIESEC Conference Delegate Registration Form</h1>
-  <p>Welcome, Future Leader! Please complete this form to register for the upcoming AIESEC conference.</p>
-  <form action="/submit" method="post">
-    
-    <fieldset>
-      <legend>1. Personal Information</legend>
-      <label>Full Name*<br>
-        <input type="text" name="full_name" required>
-      </label>
-      <label>Preferred Name (for badge)<br>
-        <input type="text" name="preferred_name">
-      </label>
-      <label>Email Address*<br>
-        <input type="email" name="email" required>
-      </label>
-      <label>CIN*<br>
-        <input type="text" name="CIN" required>
-      </label>
-      <label>Phone Number*<br>
-        <input type="tel" name="phone" placeholder="+1234567890" required>
-      </label>
-      <label>Date of Birth*<br>
-        <input type="date" name="dob" required>
-      </label>
-      <label>Gender*<br>
-        <select name="gender" required>
-          <option value="">Select...</option>
-          <option>Male</option>
-          <option>Female</option>
-        </select>
-      </label>
-    </fieldset>
 
-    <fieldset>
-      <legend>2. AIESEC Information</legend>
-      <label>Your Entity (LC/MC)*<br>
-        <input type="text" name="entity" required>
-      </label>
-      <label>Current Role/Position in AIESEC*<br>
-        <input type="text" name="role" required>
-      </label>
-      <label>How long have you been in AIESEC?*<br>
-        <select name="duration" required>
-          <option value="">Select...</option>
-          <option>Less than 3 months</option>
-          <option>3–6 months</option>
-          <option>6–12 months</option>
-          <option>Over a year</option>
-        </select>
-      </label>
-      <label>Are you attending this conference as:*<br>
-        <select name="attending_as" required>
-          <option value="">Select...</option>
-          <option>Delegate</option>
-          <option>Other</option>
-        </select>
-      </label>
-    </fieldset>
+  <h1>🕵️‍♂️ طلعني شكون؟</h1>
 
-    <fieldset>
-      <legend>3. Logistics</legend>
-      <label>Do you require individual accommodation?<br>
-        <select name="accommodation">
-          <option value="">Select...</option>
-          <option>Yes</option>
-          <option>No</option>
-         
-        </select>
-      </label>
-      <label>Dietary Restrictions or Allergies<br>
-        <textarea name="dietary" rows="3"></textarea>
-      </label>
-      <label>Emergency Contact (Name, Phone, Relation)*<br>
-        <textarea name="emergency_contact" rows="2" required></textarea>
-      </label>
-      <label>Permission to be photographed or filmed?<br>
-        <select name="media_consent" required>
-          <option value="">Select...</option>
-          <option>Yes</option>
-          <option>No</option>
-        </select>
-      </label>
-    </fieldset>
+  <div class="card">
+    <h2>🤫 الشخصية مخفية</h2>
+    <div class="clues" id="clues">
+      <!-- Clues will appear here -->
+    </div>
+    <input type="text" id="guess" placeholder="اكتب تخمينك هنا...">
+    <br>
+    <button onclick="checkGuess()">خمن!</button>
+    <div class="result" id="result"></div>
+  </div>
 
-    <fieldset>
-      <legend>4. Conference Experience</legend>
-      <label>What do you expect to gain from this conference?<br>
-        <textarea name="expectations" rows="4"></textarea>
-      </label>
-      <label>Interested in joining a functional space or team activity?<br>
-        <select name="join_activity">
-          <option value="">Select...</option>
-          <option>Yes</option>
-          <option>No</option>
-          <option>Maybe</option>
-        </select>
-      </label>
-      <label>If yes, which one?<br>
-        <input type="text" name="activity_choice">
-      </label>
-    </fieldset>
+  <script>
+    const identities = [
+      {
+        name: "فنان راب مشهور",
+        clues: ["يحب يلبس ماركات", "ديما في التيكتوك", "عنده جمهور مراهق"]
+      },
+      {
+        name: "ولد الحومة",
+        clues: ["يسوق موتو", "يعرف كل صغيرة وكبيرة", "ديما حاضر في الشارع"]
+      },
+      {
+        name: "بنت التيكتوك",
+        clues: ["تحب الفيلترات", "تصور روتين الصباح", "عندها برشا فولورز"]
+      }
+    ];
 
-    <fieldset>
-      <legend>5. Confirmation</legend>
-      <label>
-        <input type="checkbox" name="agree" required> I confirm the information provided is accurate and I agree to adhere to the AIESEC Code of Conduct.*
-      </label>
-    </fieldset>
+    const randomIndex = Math.floor(Math.random() * identities.length);
+    const selectedIdentity = identities[randomIndex];
 
-    <button type="submit">Submit</button>
-  </form>
+    const cluesDiv = document.getElementById('clues');
+    selectedIdentity.clues.forEach(clue => {
+      const p = document.createElement('p');
+      p.textContent = "🔍 " + clue;
+      cluesDiv.appendChild(p);
+    });
+
+    function checkGuess() {
+      const guess = document.getElementById('guess').value.trim();
+      const result = document.getElementById('result');
+
+      if (guess === selectedIdentity.name) {
+        result.innerHTML = "🎉 صح عليك! الجواب صحيح ✅";
+        result.style.color = "#00FF7F";
+      } else {
+        result.innerHTML = "❌ غالط، جرب مرة أخرى!";
+        result.style.color = "#FF4D4D";
+      }
+    }
+  </script>
+
 </body>
-</html> 
+</html>
