@@ -1,99 +1,22 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>طلعني شكون؟</title>
-  <style>
-    body {
-      font-family: 'Cairo', sans-serif;
-      background: #111;
-      color: #fff;
-      text-align: center;
-      padding: 50px;
-    }
-    h1 {
-      color: #FFD700;
-      margin-bottom: 10px;
-    }
-    .card, .clues, .result {
-      background: #222;
-      padding: 20px;
-      border-radius: 12px;
-      margin: 20px auto;
-      max-width: 500px;
-      box-shadow: 0 0 10px #FFD700;
-    }
-    input, button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 10px;
-      font-size: 16px;
-      margin-top: 10px;
-    }
-    button {
-      background-color: #FFD700;
-      cursor: pointer;
-    }
-    .result {
-      font-size: 18px;
-      margin-top: 20px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HBD</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <h1>🕵️‍♂️ طلعني شكون؟</h1>
-
-  <div class="card">
-    <h2>🤫 الشخصية مخفية</h2>
-    <div class="clues" id="clues">
-      <!-- Clues will appear here -->
+    <div class="container">
+        <h1>Will you change Ur mind?</h1>
+        <div class="buttons">
+            <button class="yes-button" onclick="handleYesClick()">Yes</button>
+            <button class="no-button" onclick="handleNoClick()">No</button>
+        </div>
+        <div class="gif_container">
+            <iframe src="https://giphy.com/embed/Ze4BXdrjDjygM9Piq0" width="480" height="288" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/adweek-nope-journalist-yellowstone-Ze4BXdrjDjygM9Piq0">via GIPHY</a></p>
+        </div>
     </div>
-    <input type="text" id="guess" placeholder="اكتب تخمينك هنا...">
-    <br>
-    <button onclick="checkGuess()">خمن!</button>
-    <div class="result" id="result"></div>
-  </div>
-
-  <script>
-    const identities = [
-      {
-        name: "فنان راب مشهور",
-        clues: ["يحب يلبس ماركات", "ديما في التيكتوك", "عنده جمهور مراهق"]
-      },
-      {
-        name: "ولد الحومة",
-        clues: ["يسوق موتو", "يعرف كل صغيرة وكبيرة", "ديما حاضر في الشارع"]
-      },
-      {
-        name: "بنت التيكتوك",
-        clues: ["تحب الفيلترات", "تصور روتين الصباح", "عندها برشا فولورز"]
-      }
-    ];
-
-    const randomIndex = Math.floor(Math.random() * identities.length);
-    const selectedIdentity = identities[randomIndex];
-
-    const cluesDiv = document.getElementById('clues');
-    selectedIdentity.clues.forEach(clue => {
-      const p = document.createElement('p');
-      p.textContent = "🔍 " + clue;
-      cluesDiv.appendChild(p);
-    });
-
-    function checkGuess() {
-      const guess = document.getElementById('guess').value.trim();
-      const result = document.getElementById('result');
-
-      if (guess === selectedIdentity.name) {
-        result.innerHTML = "🎉 صح عليك! الجواب صحيح ✅";
-        result.style.color = "#00FF7F";
-      } else {
-        result.innerHTML = "❌ غالط، جرب مرة أخرى!";
-        result.style.color = "#FF4D4D";
-      }
-    }
-  </script>
-
+    <script src="script.js"></script>
 </body>
 </html>
